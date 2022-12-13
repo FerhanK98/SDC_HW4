@@ -1,0 +1,4 @@
+docker pull ferhankushev/hw3_sdc:streamlit
+
+
+https://hub.docker.com/r/ferhankushev/hw3_sdc/tags
