@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: https://index.docker.io/v1/
-        username: ${{ secrets.AzureAppService_ContainerUsername_074a44806c5247b58146166821dacc1c }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_6d4318a39de34c1484a87d95305a081c }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_a217ff81a4ca447aae0731a93db93c38 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_ce3352e5a21f4abca3799b3f75dc7272 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_074a44806c5247b58146166821dacc1c }}/ferhankushev/hw3_sdc:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_a217ff81a4ca447aae0731a93db93c38 }}/ferhankushev/hw3_sdc:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'streamlitazure-app'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_7a54c7bb10474f26b199356369f3b6b1 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_074a44806c5247b58146166821dacc1c }}/ferhankushev/hw3_sdc:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_7d20b18a525e4640991c55b3a93ba56f }}
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_a217ff81a4ca447aae0731a93db93c38 }}/ferhankushev/hw3_sdc:${{ github.sha }}'
